@@ -18,7 +18,9 @@
   },
   "homepage": "https://github.com/BeerPromise/beer-promise",
   "dependencies": {
-    "express": "^4.12.3"
+    "body-parser": "^1.12.2",
+    "express": "^4.12.3",
+    "mongodb": "^2.0.24"
   },
   "devDependencies": {
     "jasmine-core": "^2.2.0",
