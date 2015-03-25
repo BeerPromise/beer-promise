@@ -14,5 +14,10 @@ Makers Academy Week 8 Makerthon project. The app is designed to minimise the amo
 
 ####To-Do
 
+- [] Log in for customer and bar
+- [] App displays menu to order from
+- [] Allow customer to add order
+- [] Bar can receive order request
+
 ####Technologies Used
 
