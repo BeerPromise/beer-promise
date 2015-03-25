@@ -50,10 +50,36 @@ app.post('/createcustomer', function(req, res){
   createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
       if(err) {return console.error(err);}
+      console.log('Stored User');
     });
   });
+
+  // -- I think ideally we'd use the customers object id
+  // -- in the session. However to do so gonna have to
+  // -- figure out async and promise chains, so just using
+  // -- email for now, which should be unique. But they're
+  // -- not because we're not validating input yet.
+
   sess.user = req.body.email;
   res.redirect('/');
+});
+
+
+  // -- TODO:
+  // Set up bcrypt compare to log a user in.
+
+app.post('/customerlogin', function(req, res) {
+  var sess = req.session;
+
+  db.customers.findOne({email:req.body.email}, function(err, doc) {
+    if(err) {console.log(err); return;}
+    else if(doc){
+    console.log(doc.password);
+    }
+  });
+
+  res.send(req.body.email);
+
 });
 
 module.exports = server;
