@@ -4,7 +4,7 @@ var server = require('http').createServer(app);
 
 var port = process.env.PORT || 3000;
 var mongojs = require('mongojs');
-var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
+var db = mongojs((process.env.MONGOLAB_URI || 'beerDevelopment'), ['customers', 'bars', 'menus']);
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
@@ -44,6 +44,7 @@ app.get('/createcustomer', function(req, res){
 });
 
 app.post('/createcustomer', function(req, res){  
+  console.log(req.body);
   createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
       if(err) {return console.error(err);}
