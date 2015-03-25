@@ -5,6 +5,7 @@ var router = express.Router();
 var server = require('http').createServer(app);
 var session = require('express-session');
 var port = process.env.PORT || 3000;
+var root = __dirname + '/public/';
 app.use(express.static(__dirname + '/public'));
 app.use(session({
   genid: function(req) {return genuuid();},
@@ -36,10 +37,10 @@ app.get('/', function(req, res) {
   // This does NOT get called if there is an index.html...
   var sess = req.session;
   if (sess.user) {
-    res.send('Ayyyy its da menu');
+    res.sendFile(root + 'menuApp.html');
   }
   else {
-    res.send('This should render the login page. Just click <a href="/login.html">this</a> instead.');
+    res.sendFile(root + 'login.html');
   }
 
 });
