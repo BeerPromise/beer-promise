@@ -7,7 +7,9 @@ var mongojs = require('mongojs');
 var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
 var bodyParser = require('body-parser');
 
-var bcrypt = require('bcrypt');
+var createUser = require('./bcrypt');
+
+
 
 app.set('views', __dirname + '/public');
 app.use(express.static(__dirname + '/public'));
@@ -25,19 +27,14 @@ app.get('/', function(req, res) {
 });
 
 app.post('/createcustomer', function(req, res){
-  var customer = {};
 
-  customer.email = req.body.email;
-  bcrypt.hash(req.body.password, 10, function(err, hash) {
-    console.log("!!!!"+hash);
-    customer.password = hash;
-    console.log(JSON.stringify(customer));
-
+  console.log("Shits about to happen");
+  createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
+      console.log("Checkpoint C!");
       if(err) {return console.error(err);}
     });
   });
-
 
 });
 
