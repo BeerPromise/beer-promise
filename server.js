@@ -9,17 +9,25 @@ var bodyParser = require('body-parser');
 
 var createUser = require('./bcrypt');
 
-
-
-app.set('views', __dirname + '/public');
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-//app.use(bodyParser.json());                                     // parse application/json
-//app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+app.use(bodyParser.urlencoded({'extended':'true'}));
 
 server.listen(port, function(){
   console.log("Listening on server port " + port);
+});
+
+
+app.get('/', function(req,res) {
+
+  // if(!session.id) {redirect /login}
+
+});
+
+app.get('/login', function(req, res) {
+
+
+
 });
 
 app.post('/createcustomer', function(req, res){
