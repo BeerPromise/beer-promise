@@ -7,10 +7,11 @@ var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers',
 var bodyParser = require('body-parser');  // pull information from HTML POST (express4)
 
 app.set('views', __dirname + '/public');
-app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
+app.use(express.static(__dirname + '/public'));
+
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
+//app.use(bodyParser.json());                                     // parse application/json
+//app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 
 server.listen(port, function(){
   console.log("Listening on server port " + port);
@@ -21,14 +22,10 @@ app.get('/', function(req, res) {
 });
 
 app.post('/createcustomer', function(req, res){
-  console.log("Body of request is: "+JSON.stringify(req.body));
-  db.customers.insert(req.body, function(err, docs){
-    if(err) {
-      return console.log(err);
-    }
-
-    res.json(docs);
+  db.customers.insert(req.body, function(err, docs) {
+    if(err) {return console.error(err);}
   });
+
 });
 
 module.exports = server;
