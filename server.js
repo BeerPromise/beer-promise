@@ -3,7 +3,7 @@ var app = express();
 var server = require('http').createServer(app);
 var port = process.env.PORT || 3000;
 var mongojs = require('mongojs');
-var db = mongojs((process.env.MONGOLAB_URI || 'beer-staging'), ['customers', 'bars', 'menus']);
+var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
 var bodyParser = require('body-parser');  // pull information from HTML POST (express4)
 
 app.set('views', __dirname + '/public');
