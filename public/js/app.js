@@ -8,10 +8,9 @@
 
   app.controller('CreateCustomerController', ['$http', function($http){
     this.createCustomer = function(){
-    $http.post('/createcustomer', this.customer).success(function(response){
-      console.log(response);
-    });
-   };
+      $http.post('/createcustomer', this.customer).success(function(response){
+      });
+    };
   }]);
 
 })();

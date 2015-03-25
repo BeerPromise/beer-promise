@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="beerPromise">
+  <head>
+    <title>Beer Promise</title>
+
+    <script type="text/javascript" src="components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+  </head>
+  <body>
+
+    <h1>Customer Order</h1>
+
+    <p>Nothing sweeter than the promise of beer.</p>
+
+<!-- 
+        <form action="/createcustomer" method="POST">
+      <fieldset>
+        <legend>Sign Up!</legend>
+        <ul>
+          <li>email: <input type="email" name="email"></li>
+          <li>password: <input type="password" name="password"></li>
+          <li><input type="submit"></li>
+        </ul>
+      </fieldset>
+    </form> -->
+
+      <form name="createCustomer" ng-controller="CreateCustomerController as createCustomerCtrl" ng-submit="createCustomerCtrl.createCustomer()">
+        <fieldset>
+          <legend>Customer sign up</legend> 
+          email: <input ng-model="createCustomerCtrl.customer.email" type="email" required />
+          password: <input ng-model="createCustomerCtrl.customer.pword" type="password" required />
+          <input type="submit">
+        </fieldset>    
+      </form>
+
+  </body>
+</html>

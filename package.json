@@ -2,7 +2,7 @@
   "name": "beer-promise",
   "version": "1.0.0",
   "description": "[![Stories in Ready](https://badge.waffle.io/beerpromise/beer-promise.png?label=ready&title=Ready)](https://waffle.io/beerpromise/beer-promise) Beer Promise =========",
-  "main": "serverç.js",
+  "main": "server.js",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
   },
