@@ -2,9 +2,12 @@ var express = require('express');
 var app = express();
 var server = require('http').createServer(app);
 var port = process.env.PORT || 3000;
+
 var mongojs = require('mongojs');
 var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
-var bodyParser = require('body-parser');  // pull information from HTML POST (express4)
+var bodyParser = require('body-parser');
+
+var bcrypt = require('bcrypt');
 
 app.set('views', __dirname + '/public');
 app.use(express.static(__dirname + '/public'));
@@ -22,9 +25,19 @@ app.get('/', function(req, res) {
 });
 
 app.post('/createcustomer', function(req, res){
-  db.customers.insert(req.body, function(err, docs) {
-    if(err) {return console.error(err);}
+  var customer = {};
+
+  customer.email = req.body.email;
+  bcrypt.hash(req.body.password, 10, function(err, hash) {
+    console.log("!!!!"+hash);
+    customer.password = hash;
+    console.log(JSON.stringify(customer));
+
+    db.customers.insert(customer, function(err, docs) {
+      if(err) {return console.error(err);}
+    });
   });
+
 
 });
 
