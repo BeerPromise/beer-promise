@@ -6,6 +6,12 @@ Makers Academy Week 8 Makerthon project. The app is designed to minimise the amo
 
 ####Set-Up
 
+####Tasks Complete
+
+- [x] Environment set up
+- [x] Basic HTML layout constructed
+- [x] Staging database created
+
 ####To-Do
 
 ####Technologies Used
