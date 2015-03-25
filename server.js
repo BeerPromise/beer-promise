@@ -22,17 +22,13 @@ server.listen(port, function(){
   console.log("Listening on server port " + port);
 });
 
-app.get('/', function(req, res) {
-  res.render('index');
-});
-
 app.post('/createcustomer', function(req, res){
   createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
       if(err) {return console.error(err);}
     });
   });
-
+  res.sendfile('public/test.html');
 });
 
 module.exports = server;
