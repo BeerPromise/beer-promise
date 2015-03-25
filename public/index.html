@@ -11,22 +11,22 @@
 
       <p>Nothing sweeter than the promise of beer.</p>
 
-      <form name="customerLogin" ng-controller="CustomerLoginController as customerLoginCtrl" ng-submit="customerLoginCtrl.loginCustomer(customer)">
-        <fieldset>  
-          <legend>Customer Login</legend> 
+<!--       <form name="customerLogin" ng-controller="CustomerLoginController as customerLoginCtrl" ng-submit="customerLoginCtrl.loginCustomer(customer)">
+        <fieldset>
+          <legend>Customer Login</legend>
           email: <input ng-model="customer.email" type="email" required />
           password: <input ng-model="customer.pword" type="password" required />
           <input type="submit">
         </fieldset>
-      </form>
+      </form> -->
 
       <form name="createCustomer" ng-controller="CreateCustomerController as createCustomerCtrl" ng-submit="createCustomerCtrl.createCustomer()">
         <fieldset>
-          <legend>Customer sign up</legend> 
+          <legend>Customer sign up</legend>
           email: <input ng-model="createCustomerCtrl.customer.email" type="email" required />
           password: <input ng-model="createCustomerCtrl.customer.pword" type="password" required />
           <input type="submit">
-        </fieldset>    
+        </fieldset>
       </form>
   </body>
 </html>
