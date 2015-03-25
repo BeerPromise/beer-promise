@@ -3,11 +3,12 @@ var app = express();
 var server = require('http').createServer(app);
 var port = process.env.PORT || 3000;
 var mongojs = require('mongojs');
-var db = mongojs((process.env.MONGOLAB_URI || 'beerDevelopment'), ['beerDevelopment']);
+//var db = mongojs((process.env.MONGOLAB_URI || 'beerDevelopment'), ['beerDevelopment']);
+var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
 var bodyParser = require('body-parser');  // pull information from HTML POST (express4)
 
 app.set('views', __dirname + '/public');
-app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users                                       // log every request to the console
+app.use(express.static(__dirname + '/public'));                 // set the static files location /public/img will be /img for users
 app.use(bodyParser.urlencoded({'extended':'true'}));            // parse application/x-www-form-urlencoded
 app.use(bodyParser.json());                                     // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
@@ -23,7 +24,7 @@ app.get('/', function(req, res) {
 app.post('/createcustomer', function(req, res){
   db.beerDevelopment.insert(req.body, function(err, docs){
     res.json(docs);
-  });  
+  });
 });
 
 module.exports = server;
