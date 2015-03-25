@@ -27,11 +27,8 @@ app.get('/', function(req, res) {
 });
 
 app.post('/createcustomer', function(req, res){
-
-  console.log("Shits about to happen");
   createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
-      console.log("Checkpoint C!");
       if(err) {return console.error(err);}
     });
   });
