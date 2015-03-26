@@ -40,4 +40,6 @@ var db = mongojs(('beer-testing'), ['customers', 'bars', 'menus']);
     expect(ins.getText()).toContain('0');
    });
 
+
+
 });
