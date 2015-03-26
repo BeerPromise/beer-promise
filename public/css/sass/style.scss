@@ -45,7 +45,7 @@ body{
         input#sign-up-submit{
           padding: 10px 20px !important;
           font-size: 20px;
-          background-color: red;
+          background-color: #E49191;
           border: none;
           font-family: inherit;
           cursor: pointer;
@@ -54,26 +54,80 @@ body{
       }
   }
 
-main#bar{
-  section{
-    padding: 20px;
-    border: solid 1px;
-    border-radius: 10px;
-    border-color: #acacac;
-    width: 70%;
-    margin: 30px auto;   
+  main#bar{
+    section{
+      padding: 20px;
+      border: solid 1px;
+      border-radius: 10px;
+      border-color: #acacac;
+      width: 70%;
+      margin: 30px auto;   
+    }
   }
-}
 
-main#menu{
-  width: 70%;
-  margin: 0 auto;
-
-}
-
-
-
-
+  main#menu{
+    .container{
+      width: 70%;
+    }
+    .container:nth-child(1){
+      margin-bottom: 40px;
+    }
+    margin: 0 auto;
+    .ib{
+      display: inline;
+      padding: 0 !important;
+    }
+    section:nth-child(3){
+      text-align: center;
+      margin-top: 40px;
+    }
+    section:nth-child(1) h2,
+    section:nth-child(1) div{
+      display: inline;
+      padding: 0;
+    }
+    section:nth-child(1) div:nth-child(2){
+      text-align: center;
+    }
+    ul{
+      width: 70%;
+      padding: 30px;
+      margin: 0 auto;
+      li section:nth-child(2){
+        text-align: center;
+      }
+    }  
+    .button{
+      border-radius: 10px;
+      background-color: #33A4A8;
+      padding: 10px 20px;
+    }
+    a[href="/signout"]{
+      background-color: #E49191;
+    }
+    .full-width{
+      width: 100%;
+      border-top: solid 1px;
+      border-bottom: solid 1px;
+      border-color: #FFC778;
+      p{
+        display: inline;
+      }  
+    }
+    div:nth-child(3) section{
+      margin-top: 50px;
+      text-align: center;
+    }
+    #increment{
+      img{
+        max-width: 100%;
+      }
+    }
+    .hidden{
+      display: hidden;
+    }
+    
+  }
 
 }
 
