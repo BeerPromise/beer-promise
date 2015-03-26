@@ -19,7 +19,7 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({'extended':'true'}));
 
 // --- Helper Files ---
-var createUser = require('./controllers/bcrypt');
+var bcrypt = require('./controllers/bcrypt');
 var genuuid = require('./controllers/uuid');
 
 
@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
 
 app.post('/createcustomer', function(req, res){
   var sess = req.session;
-  createUser(req.body.email, req.body.password, function(customer) {
+  bcrypt.createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
       if(err) {return console.error(err);}
       console.log('Stored User');
@@ -71,14 +71,25 @@ app.post('/createcustomer', function(req, res){
 app.post('/customerlogin', function(req, res) {
   var sess = req.session;
 
+  console.log('About to process login');
+
   db.customers.findOne({email:req.body.email}, function(err, doc) {
-    if(err) {console.log(err); return;}
+    if(err) {console.log(err);}
     else if(doc){
-    console.log(doc.password);
-    }
+      bcrypt.checkPassword(req.body.password, doc.password, function(isMatch) {
+        if(isMatch) {
+          console.log('It\'s a match!');
+          sess.user = doc.email;
+          res.redirect('/');
+        }
+        else {
+          res.sendFile(root + 'login.html');
+        }
+      });
+    }  // end else if(doc)
   });
 
-  res.send(req.body.email);
+  //res.send('404 Error \nOh no! You shouldn\'t be here.');
 
 });
 
