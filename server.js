@@ -22,7 +22,6 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 var bcrypt = require('./controllers/bcrypt');
 var genuuid = require('./controllers/uuid');
 
-
 // --- Server Start ---
 server.listen(port, function(){
   console.log("Listening on server port " + port);
@@ -64,6 +63,11 @@ app.post('/createcustomer', function(req, res){
   res.redirect('/');
 });
 
+app.get('/get-session', function(req, res){
+  var sess = req.session.user
+  res.json(sess)
+});
+
 
   // -- TODO:
   // Set up bcrypt compare to log a user in.
@@ -90,7 +94,14 @@ app.post('/customerlogin', function(req, res) {
   });
 
   //res.send('404 Error \nOh no! You shouldn\'t be here.');
-
 });
+
+app.get('/signout', function(req, res) {
+  var sess = req.session;
+  delete sess.user;
+  res.redirect('/');
+});
+
+
 
 module.exports = server;

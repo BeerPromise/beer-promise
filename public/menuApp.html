@@ -7,15 +7,31 @@
     <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
-  <body>
+  <body ng-controller="BeerPromiseController as beerCtrl">
 
       <p>Nothing sweeter than the promise of beer.</p>
-
+      <p id="welcome">welcome, {{beerCtrl.id}}</p>
     <main>
-      This is where the angular app for ordering will be.
 
+      <ul>
+        <li>
+          <section>
+            <p>BEER</p>
+          </section>
+          <section>
+            <a href="#" id="increment" ng-click="beerCtrl.addBeer()">+</a>
+            <ins>{{beerCtrl.beerCount}}</ins>
+            <a href="#" id="decrement" ng-click="beerCtrl.removeBeer()">-</a>
+          </section>
+        </li>
+      </ul>
+      <section>
+        <a href="#" ng-click="beerCtrl.placeOrder()">Place Order</a>
+      </section>
+      <footer>
+        <a href="/signout">Log Out</a>
+      </footer>
     </main>
-
 
   </body>
 </html>
