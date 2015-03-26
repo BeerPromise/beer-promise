@@ -22,9 +22,6 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 var bcrypt = require('./controllers/bcrypt');
 var genuuid = require('./controllers/uuid');
 
-app.use(bodyParser.json());                                     // parse application/json
-app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
-
 // --- Server Start ---
 server.listen(port, function(){
   console.log("Listening on server port " + port);

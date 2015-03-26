@@ -19,6 +19,18 @@ var db = mongojs(('beer-testing'), ['customers', 'bars', 'menus']);
 
   beforeEach(function() {});
 
+  it('can increment beers', function(){
+    var increment = element(by.css('#increment'));
+    var ins = element(by.css('ins'));
+    increment.click();
+    expect(ins.getText()).toContain('1');    
+  });
 
+  it('can decrement beers', function(){
+    var decrement = element(by.css('#decrement'));
+    var ins = element(by.css('ins'));  
+    decrement.click()
+    expect(ins.getText()).toContain('0');      
+  });
 
 });
