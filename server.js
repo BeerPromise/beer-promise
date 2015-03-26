@@ -90,7 +90,14 @@ app.post('/customerlogin', function(req, res) {
   });
 
   //res.send('404 Error \nOh no! You shouldn\'t be here.');
-
 });
+
+app.get('/signout', function(req, res) {
+  var sess = req.session;
+  delete sess.user;
+  res.redirect('/');
+});
+
+
 
 module.exports = server;
