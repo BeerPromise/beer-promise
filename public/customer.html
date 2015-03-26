@@ -7,32 +7,25 @@
     <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
-  <body>
+  <body ng-controller="CustomerController as customerCtrl">
 
     <h1>Customer Order</h1>
 
     <p>Nothing sweeter than the promise of beer.</p>
 
-<!-- 
-        <form action="/createcustomer" method="POST">
-      <fieldset>
-        <legend>Sign Up!</legend>
-        <ul>
-          <li>email: <input type="email" name="email"></li>
-          <li>password: <input type="password" name="password"></li>
-          <li><input type="submit"></li>
-        </ul>
-      </fieldset>
-    </form> -->
-
-      <form name="createCustomer" ng-controller="CreateCustomerController as createCustomerCtrl" ng-submit="createCustomerCtrl.createCustomer()">
+      <form name="createCustomer" ng-show="createCustomerCtrl.session" ng-controller="CreateCustomerController as createCustomerCtrl" ng-submit="createCustomerCtrl.createCustomer()">
         <fieldset>
           <legend>Customer sign up</legend> 
           email: <input ng-model="createCustomerCtrl.customer.email" type="email" required />
           password: <input ng-model="createCustomerCtrl.customer.password" type="password" required />
           <input type="submit">
-        </fieldset>    
+        </fieldset>  
+
       </form>
+
+      <button ng-click="customerCtrl.destroySession()">Log-out</button>
+
+      {{customerCtrl.session}}
 
   </body>
 </html>

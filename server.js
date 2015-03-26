@@ -39,17 +39,19 @@ app.get('/bar', function(req, res){
 });
 
 app.get('/createcustomer', function(req, res){
-  console.log(req.body)  
   res.sendfile('public/customer.html'); 
 });
 
 app.post('/createcustomer', function(req, res){  
-  console.log(req.body);
   createUser(req.body.email, req.body.password, function(customer) {
     db.customers.insert(customer, function(err, docs) {
       if(err) {return console.error(err);}
+      res.json(docs);
     });
   });
+});
+
+app.get('/createcustomer', function(req, res){
   res.sendfile('public/customer.html'); 
 });
 
