@@ -4,7 +4,8 @@
   "description": "[![Stories in Ready](https://badge.waffle.io/beerpromise/beer-promise.png?label=ready&title=Ready)](https://waffle.io/beerpromise/beer-promise) Beer Promise =========",
   "main": "index.js",
   "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
+    "postinstall": "./node_modules/bower/bin/bower install",
+    "testStart": "BEER_NODE_ENV=testing node server.js"
   },
   "repository": {
     "type": "git",
