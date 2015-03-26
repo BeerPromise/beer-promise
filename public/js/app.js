@@ -13,10 +13,6 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
   this.testArray = ['uh'];
 
-  $http.get('/push-test').success(function() {
-    console.log('ZUCCEDED');
-  });
-
   this.testAddItem = function() {
     $http.get('/push-test').success(function() {
       console.log('The push-test was conducted.');

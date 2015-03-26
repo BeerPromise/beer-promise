@@ -104,16 +104,12 @@ app.get('/get-session', function(req, res){
   res.json(sess.user);
 });
 
-// var testArray = [];
+  var testArray = [];
 
-// app.get('/push-test', function(req, res) {
-//   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
-//   testArray.push('FREE');
-//   console.log('---- Something ----');
-//   pusher.trigger('test-channel', 'test-event', {"array": testArray});
-//   console.log('---- Something Else ------ ');
-
-// });
+  app.get('/push-test', function(req, res) {
+    testArray.push('FREE');
+    pusher.trigger('test-channel', 'test-event', {"array": testArray});
+  });
 
 
 

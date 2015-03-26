@@ -1,4 +1,5 @@
 var secrets;
+var Pusher = require('pusher');
 try {
   secrets = require('./secrets');
 } catch(e) {
@@ -10,7 +11,7 @@ try {
   };
 }
 
-var pusher = new require('pusher')({
+var pusher = new Pusher({
   appId: secrets.pusherAppId,
   key: secrets.pusherKey,
   secret: secrets.pusherSecret
