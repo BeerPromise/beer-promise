@@ -1,15 +1,37 @@
-var app = angular.module('beerPromise', []);
+var app = angular.module('beerPromise', ['pusher-angular']);
 
-app.controller('BeerPromiseController', ['$http', function($http){
+app.controller('BeerPromiseController', ['$http','$pusher', function($http,$pusher){
+
+  var client = new Pusher('6722ac0ecaea2ee391e6');
+  var pusher = $pusher(client);
+
   self = this;
 
-  self.beerCount = 0;
+  var channel = pusher.subscribe('test-channel');
 
-  self.addBeer = function() {
-    self.beerCount += 1;
+
+
+  this.testArray = ['uh'];
+
+  $http.get('/push-test').success(function() {
+    console.log('ZUCCEDED');
+  });
+
+  this.testAddItem = function() {
+    $http.get('/push-test').success(function() {
+      console.log('The push-test was conducted.');
+    });
   };
 
-  self.removeBeer = function() {
+  this.id = "";
+
+  this.beerCount = 0;
+
+  this.addBeer = function() {
+    this.beerCount += 1;
+  };
+
+  this.removeBeer = function() {
     self.beerCount--;
   };
 
@@ -18,5 +40,7 @@ app.controller('BeerPromiseController', ['$http', function($http){
   });
 
 }]);
+
+var notApp = angular.module('forProtractor', []);
 
 

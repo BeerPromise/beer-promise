@@ -1,7 +1,6 @@
 // --- Server ---
 var express = require('express');
 var app = express();
-var router = express.Router();
 var server = require('http').createServer(app);
 var session = require('express-session');
 var port = process.env.PORT || 3000;
@@ -11,6 +10,9 @@ app.use(session({
   genid: function(req) {return genuuid();},
   secret: 'drink more beer'
 }));
+
+// --- Pusher ---
+var pusher = require('./controllers/pusher');
 
 // --- Database ---
 var mongojs = require('mongojs');
@@ -63,14 +65,9 @@ app.post('/createcustomer', function(req, res){
   res.redirect('/');
 });
 
-app.get('/get-session', function(req, res){
-  var sess = req.session.user
-  res.json(sess)
-});
 
 
-  // -- TODO:
-  // Set up bcrypt compare to log a user in.
+
 
 app.post('/customerlogin', function(req, res) {
   var sess = req.session;
@@ -92,8 +89,6 @@ app.post('/customerlogin', function(req, res) {
       });
     }  // end else if(doc)
   });
-
-  //res.send('404 Error \nOh no! You shouldn\'t be here.');
 });
 
 app.get('/signout', function(req, res) {
@@ -101,6 +96,24 @@ app.get('/signout', function(req, res) {
   delete sess.user;
   res.redirect('/');
 });
+
+
+// -- JSON Requests
+app.get('/get-session', function(req, res){
+  var sess = req.session;
+  res.json(sess.user);
+});
+
+// var testArray = [];
+
+// app.get('/push-test', function(req, res) {
+//   console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+//   testArray.push('FREE');
+//   console.log('---- Something ----');
+//   pusher.trigger('test-channel', 'test-event', {"array": testArray});
+//   console.log('---- Something Else ------ ');
+
+// });
 
 
 

@@ -2,5 +2,6 @@ node_modules
 public/components
 **/*.DS_Store
 .DS_Store
+controllers/secrets.js
 
 

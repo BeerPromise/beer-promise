@@ -24,7 +24,8 @@
     "express": "^4.12.3",
     "express-session": "^1.10.4",
     "mongodb": "^2.0.24",
-    "mongojs": "^0.18.2"
+    "mongojs": "^0.18.2",
+    "pusher": "^1.0.4"
   },
   "devDependencies": {
     "database-cleaner": "^0.9.1",
