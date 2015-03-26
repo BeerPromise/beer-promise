@@ -19,9 +19,9 @@
             <p>BEER</p>
           </section>
           <section>
-            <a href="#" ng-click="beerCtrl.addBeer()">+</a>
-            <ins>0</ins>
-            <a href="#" ng-click="beerCtrl.removeBeer()">-</a>
+            <a href="#" id="increment" ng-click="beerCtrl.addBeer()">+</a>
+            <ins>{{beerCtrl.beerCount}}</ins>
+            <a href="#" id="decrement" ng-click="beerCtrl.removeBeer()">-</a>
           </section>
         </li>
       </ul>

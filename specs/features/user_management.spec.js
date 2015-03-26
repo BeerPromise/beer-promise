@@ -4,6 +4,9 @@ var db = mongojs(('beer-testing'), ['customers', 'bars', 'menus']);
 
   afterAll(function() {
     db.customers.remove({});
+    browser.get('http://localhost:3000');
+    var signOut = element(by.css("a[href='/signout']"));
+    signOut.click();
   });
 
   beforeEach(function(){
