@@ -7,7 +7,7 @@ var db = mongojs(('beer-testing'), ['customers', 'bars', 'menus']);
   });
 
   beforeEach(function(){
-    browser.get('/#');
+    browser.get('http://localhost:3000');
   });
 
   it('should have a title', function() {
@@ -24,10 +24,13 @@ var db = mongojs(('beer-testing'), ['customers', 'bars', 'menus']);
     expect(element(by.id('welcome')).getText()).toContain('welcome, test@makers.com');
   });
 
+  it('A user can sign out', function() {
+    var signOut = element(by.css("a[href='/signout']"));
+    signOut.click();
+    expect(element(by.css("form[action='/createcustomer'] legend")).getText()).toContain('Sign Up!');
+  });
+
   it('can sign in a user', function(){
-    browser.get('/#');
-    browser.executeScript('window.sessionStorage.clear();');
-    browser.executeScript('window.localStorage.clear();');
     var email = element(by.id('email-sign-in'));
     var password = element(by.id('password-sign-in'));
     var submit = element(by.id('sign-in-submit'));

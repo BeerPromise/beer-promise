@@ -10,22 +10,24 @@
   <body ng-controller="BeerPromiseController as beerCtrl">
 
       <p>Nothing sweeter than the promise of beer.</p>
-      <p id="welcome">welcome, test@makers.com</p>  
+      <p id="welcome">welcome, test@makers.com</p>
     <main>
 
       <ul>
         <li>
-          <section>    
+          <section>
             <p>BEER</p>
-          </section> 
-          <section> 
+          </section>
+          <section>
             <a href="#" ng-click="beerCtrl.addBeer()">+</a>
             <ins>0</ins>
             <a href="#" ng-click="beerCtrl.removeBeer()">-</a>
-          </section>    
+          </section>
         </li>
       </ul>
-
+      <footer>
+        <a href="/signout">Log Out</a>
+      </footer>
     </main>
 
   </body>
