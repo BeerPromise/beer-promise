@@ -1,7 +1,53 @@
 body{
-  height: 20px;
-
-
-
+  font-size: 1.5em;
+  font-family: 'Poiret One', cursive;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  background-color: #FFF;
+  vertical-align: center;
   
+  header{
+    text-align: center;
+    height: 120px;
+    background-color: #FFC778;
+    svg{
+      padding-top: 25px;
+    }
+  }
+
+  main{
+    padding-top: 80px;
+      .sign-in{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-flex-flow: column wrap;
+        flex-flow: column wrap;
+        -webkit-align-content: center;
+        align-content: center;
+        li{
+          padding: 10px 0;
+          margin: 10px 0;
+          font-size: 0.8em;
+          text-transform: lowercase;
+        }
+
+        input#sign-in-submit,
+        input#sign-up-submit{
+          padding: 10px !important;
+          font-size: 20px;
+          background-color: red;
+          border: none;
+          font-family: inherit;
+          cursor: pointer;
+        }
+      }
+  }
+
+
+
 }
+
