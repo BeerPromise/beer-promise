@@ -109,6 +109,8 @@ app.get('/get-session', function(req, res){
   app.get('/push-test', function(req, res) {
     testArray.push('FREE');
     pusher.trigger('test-channel', 'test-event', {"array": testArray});
+    console.log("--- "+JSON.stringify(testArray));
+    res.end();
   });
 
 
