@@ -14,7 +14,7 @@ app.use(session({
 
 // --- Database ---
 var mongojs = require('mongojs');
-var db = mongojs((process.env.MONGOLAB_URI || 'beer-development'), ['customers', 'bars', 'menus']);
+var db = mongojs((process.env.MONGOLAB_URI || 'beer-'+process.env.BEER_NODE_ENV), ['customers', 'bars', 'menus']);
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({'extended':'true'}));
 
