@@ -12,38 +12,35 @@
     <script type="text/javascript" src="components/pusher-angular/lib/pusher-angular.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
   </head>
-  <body ng-controller="BeerPromiseController as beerCtrl">
-    <header>
+  <body>
+     <header>
 
-    </header>
 
-    <main id="menu">
+      </header>
 
-      <h2 id="welcome">welcome, {{beerCtrl.id}}</h2>
-
-      <ul>
-        <li>
-          <section>
-            <h2>BEER</h2>
-          </section>
-          <section>
-            <a href="#" id="increment" ng-click="beerCtrl.addBeer()">+</a>
-            <ins>{{beerCtrl.beerCount}}</ins>
-            <a href="#" id="decrement" ng-click="beerCtrl.removeBeer()">-</a>
-          </section>
-        </li>
-      </ul>
+    <main id="bar" ng-controller="BeerBarController as barCtrl">
 
       <section>
-        <a href="#" ng-click="beerCtrl.placeOrder()">Place Order</a>
+        <h2>Testing Orders</h2>
+        <h3 ng-repeat="order in barCtrl.orders track by $index">{{order}}</h3>
+
       </section>
 
-      <footer>
-        <a href="/signout">Log Out</a>
-      </footer>
+
+      <section>
+        <h2>Submitted Orders</h2>
+      </section>
+
+      <section>
+        <h2>Accepted Orders</h2>
+      </section>
+
+      <section>
+        <h2>Completed Orders</h2>
+      </section>
+
 
     </main>
 
   </body>
-
 </html>

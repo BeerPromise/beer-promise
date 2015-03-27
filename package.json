@@ -2,10 +2,10 @@
   "name": "beer-promise",
   "version": "1.0.0",
   "description": "[![Stories in Ready](https://badge.waffle.io/beerpromise/beer-promise.png?label=ready&title=Ready)](https://waffle.io/beerpromise/beer-promise) Beer Promise =========",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install",
-    "testStart": "BEER_NODE_ENV=testing node server.js"
+    "protractor": "BEER_NODE_ENV=testing node server.js"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,14 @@
     "express": "^4.12.3",
     "express-session": "^1.10.4",
     "mongodb": "^2.0.24",
-    "mongojs": "^0.18.2"
+    "mongojs": "^0.18.2",
+    "pusher": "^1.0.4"
   },
   "devDependencies": {
     "database-cleaner": "^0.9.1",
+    "grunt": "^0.4.5",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-watch": "^0.6.1",
     "jasmine-core": "^2.2.0",
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",

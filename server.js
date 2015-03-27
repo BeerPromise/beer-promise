@@ -1,7 +1,6 @@
 // --- Server ---
 var express = require('express');
 var app = express();
-var router = express.Router();
 var server = require('http').createServer(app);
 var session = require('express-session');
 var port = process.env.PORT || 3000;
@@ -12,6 +11,9 @@ app.use(session({
   secret: 'drink more beer'
 }));
 
+// --- Pusher ---
+var pusher = require('./controllers/pusher');
+
 // --- Database ---
 var mongojs = require('mongojs');
 var db = mongojs((process.env.MONGOLAB_URI || 'beer-'+process.env.BEER_NODE_ENV), ['customers', 'bars', 'menus']);
@@ -21,7 +23,6 @@ app.use(bodyParser.urlencoded({'extended':'true'}));
 // --- Helper Files ---
 var bcrypt = require('./controllers/bcrypt');
 var genuuid = require('./controllers/uuid');
-
 
 // --- Server Start ---
 server.listen(port, function(){
@@ -65,8 +66,8 @@ app.post('/createcustomer', function(req, res){
 });
 
 
-  // -- TODO:
-  // Set up bcrypt compare to log a user in.
+
+
 
 app.post('/customerlogin', function(req, res) {
   var sess = req.session;
@@ -88,9 +89,33 @@ app.post('/customerlogin', function(req, res) {
       });
     }  // end else if(doc)
   });
-
-  //res.send('404 Error \nOh no! You shouldn\'t be here.');
-
 });
+
+app.get('/signout', function(req, res) {
+  var sess = req.session;
+  delete sess.user;
+  res.redirect('/');
+});
+
+
+// -- JSON Requests
+app.get('/get-session', function(req, res){
+  var sess = req.session;
+  res.json(sess.user);
+});
+
+var outstandingOrders = [];
+app.get('/placeorder', function(req, res) {
+  // --- This needs to equal some JSON object that is an order,
+  // --- sent from the menu page.
+  // var order = {beers: 6};
+  var order = "BEER";
+  outstandingOrders.push(order);
+  pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
+  console.log('--- '+JSON.stringify(outstandingOrders));
+  res.end();
+});
+
+
 
 module.exports = server;
