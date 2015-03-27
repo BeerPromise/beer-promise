@@ -104,6 +104,9 @@ app.get('/get-session', function(req, res){
   res.json(sess.user);
 });
 
+console.log('***************************************');
+console.log('--- '+pusher);
+
 var outstandingOrders = [];
 app.get('/placeorder', function(req, res) {
   // --- This needs to equal some JSON object that is an order,
@@ -111,6 +114,7 @@ app.get('/placeorder', function(req, res) {
   // var order = {beers: 6};
   var order = "BEER";
   outstandingOrders.push(order);
+  console.log('--- Order received');
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
   console.log('--- '+JSON.stringify(outstandingOrders));
   res.end();

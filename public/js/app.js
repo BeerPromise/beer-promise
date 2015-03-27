@@ -2,6 +2,9 @@ var app = angular.module('beerPromise', ['pusher-angular']);
 
 app.controller('BeerPromiseController', ['$http','$pusher', function($http,$pusher){
 
+  // dev -- 6722ac0ecaea2ee391e6
+  // her -- 620b27081e518968e2d2
+
   var pusherID = '620b27081e518968e2d2';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
@@ -38,6 +41,9 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
 app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher){
 
+  // dev -- 6722ac0ecaea2ee391e6
+  // her -- 620b27081e518968e2d2
+
   var pusherID = '620b27081e518968e2d2';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
@@ -50,7 +56,7 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   channel.bind('new-order', function(data) {
     console.log('Ow! You poked me!');
-    console.log(JSON.stringify(data));
+    console.log('--'+JSON.stringify(data));
     self.orders = data.array;
   });
 
