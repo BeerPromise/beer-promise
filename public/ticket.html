@@ -1,1 +1,43 @@
-BILBO BAGGINS!
+<!DOCTYPE html>
+<html ng-app="beerPromise">
+  <head>
+    <title>Beer Promise</title>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/grid.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="components/pusher/dist/pusher.min.js"></script>
+    <script type="text/javascript" src="components/pusher-angular/lib/pusher-angular.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script>
+      $(document).ready(function(){
+            var wh = $(window).height();
+
+        $('#ticket').css('height', wh + 'px');
+      });
+
+    </script>
+  </head>
+  <body>
+    <header>
+
+    <img src="css/img/logo.png" />
+
+    </header>
+
+  <main id="ticket" ng-controller="BeerBarController as barCtrl">
+
+  <fieldset>
+    <legend>
+      Collect your beer!<br>
+      # 5367
+    </legend>
+  </fieldset>
+
+  </main>
+
+  </body>
+
+</html>
