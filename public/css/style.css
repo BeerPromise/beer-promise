@@ -139,4 +139,20 @@ body main#menu .hidden {
  }
 }
 
+body main#ticket {
+  background: url("../css/img/bigtick.png") no-repeat center top;
+  background-position: 50% 25%;
+  background-color: #9BCD9B;
+  min-height: 500px;
+  text-align: center;
+  padding-top: 200px;
+  font-size: 3em;
+  color: #FFFFFF;
+}
+
+#ticket fieldset {
+  width: 90%;
+  margin: 0 auto;
+}
+
 /*# sourceMappingURL=style.css.map */
