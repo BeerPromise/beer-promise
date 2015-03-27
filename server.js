@@ -105,7 +105,7 @@ app.get('/get-session', function(req, res){
 });
 
 console.log('***************************************');
-console.log('--- '+pusher);
+console.log('--- '+JSON.stringify(pusher));
 
 var outstandingOrders = [];
 app.get('/placeorder', function(req, res) {
