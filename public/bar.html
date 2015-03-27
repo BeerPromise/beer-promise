@@ -2,7 +2,7 @@
 <html ng-app="beerPromise">
   <head>
     <title>Beer Promise</title>
-    <link href='http://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/grid.css">
     <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -13,15 +13,15 @@
     <script type="text/javascript" src="js/app.js"></script>
   </head>
   <body>
-     <header>
+    <header>
+      <img src="css/img/logo.png"/>
 
-
-      </header>
+    </header>
 
     <main id="bar" ng-controller="BeerBarController as barCtrl">
 
       <section>
-        <h2>Testing Orders</h2>
+        <h2>Submitted Orders</h2>
         <article>
         <h3 ng-repeat="order in barCtrl.orders track by $index">{{order.beers}} Beers
                     <a href="#" ng-click="barCtrl.completeOrder(order)">GOT IT!</a>
@@ -29,10 +29,6 @@
         </article>
       </section>
 
-
-      <section>
-        <h2>Submitted Orders</h2>
-      </section>
 
       <section>
         <h2>Accepted Orders</h2>

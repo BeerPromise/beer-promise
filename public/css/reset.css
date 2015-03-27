@@ -20,3 +20,9 @@ a:link,a:visited,a:hover,a:focus{
 .float-right{
   float: right;
 }
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
