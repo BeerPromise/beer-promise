@@ -15,24 +15,28 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
   channel.bind('order-complete', function(data) {
 
-    console.log('Order completed!');
+    $http.get('/getyourticket').success(function() {
+      console.log('EVErythING WORKING');
+    });
+
+
 
   });
 
 
-  this.id = "";
+  self.id = "";
 
-  this.beerCount = 0;
+  self.beerCount = 0;
 
-  this.addBeer = function() {
-    this.beerCount += 1;
+  self.addBeer = function() {
+    self.beerCount += 1;
   };
 
-  this.removeBeer = function() {
+  self.removeBeer = function() {
     self.beerCount--;
   };
 
-  this.placeOrder = function() {
+  self.placeOrder = function() {
     console.log('Trying to place order');
     $http.get('/placeorder').success(function() {
       console.log('Order placed.');
@@ -56,13 +60,21 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   self = this;
 
-  this.orders = ["No Orders"];
+  self.orders = ["No Orders"];
 
-  this.completeOrder = function(order) {
-    // {beers:6, ID: "email"}
+  self.completeOrder = function(order) {
     // self.orders.delete(order);
+
+    for(var i=0;i<self.orders.length;i++) {
+      if(self.orders[i].orderID == order.orderID) {
+        data.splice(i, 1);
+        break;
+      }
+    }
+
+    console.log("Order is "+JSON.stringify(order));
     console.log('trying to complete order');
-    $http.get('/completeorder/'+order.ID).success(function() {
+    $http.get('/completeorder/'+order.orderID).success(function() {
       console.log('complete request sent');
     });
 

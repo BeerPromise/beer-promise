@@ -109,7 +109,7 @@ app.get('/placeorder', function(req, res) {
   var sess = req.session;
   // --- This needs to equal some JSON object that is an order,
   // --- sent from the menu page.
-  var order = {beers: 6, ID: sess.user};
+  var order = {beers: 6, orderID: sess.user};
   outstandingOrders.push(order);
   console.log('--- Order received');
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
@@ -119,10 +119,26 @@ app.get('/placeorder', function(req, res) {
 
 app.get('/completeorder/:orderID', function(req, res) {
 
-//  outstandingOrders.delete(order);
-  pusher.trigger('order-channel','order-complete', {orderID: ':orderID'});
+  for(var i=0;i<outstandingOrders.length;i++) {
+    if(outstandingOrders[i].orderID == req.params.orderID) {
+      data.splice(i,1);
+      break;
+    }
+  }
+
+  console.log('!!!!!'+req.params.orderID);
+  pusher.trigger('order-channel','order-complete', {orderID: req.params.orderID});
 
   res.end();
+});
+
+app.get('/getyourticket', function(req, res) {
+
+  console.log("getting ticket");
+
+  res.redirect('/ticket.html');
+
+
 });
 
 
