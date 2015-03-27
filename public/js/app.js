@@ -2,7 +2,8 @@ var app = angular.module('beerPromise', ['pusher-angular']);
 
 app.controller('BeerPromiseController', ['$http','$pusher', function($http,$pusher){
 
-  var client = new Pusher('6722ac0ecaea2ee391e6');
+  var pusherID = process.env.PUSHER_APP_ID || '6722ac0ecaea2ee391e6';
+  var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
   self = this;
@@ -37,7 +38,8 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
 app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher){
 
-  var client = new Pusher('6722ac0ecaea2ee391e6');
+  var pusherID = process.env.PUSHER_APP_ID || '6722ac0ecaea2ee391e6';
+  var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
   self = this;
