@@ -1,17 +1,16 @@
 body{
   font-size: 1.5em;
   font-family: 'Poiret One', cursive;
-  text-transform: uppercase;
   letter-spacing: 5px;
   background-color: #FFF;
-  vertical-align: center;
   
   header{
     text-align: center;
     height: 120px;
     background-color: #FFC778;
-    svg{
+    img{
       padding-top: 25px;
+      max-width: 70%;
     }
   }
 
@@ -72,6 +71,10 @@ body{
     .container:nth-child(1){
       margin-bottom: 40px;
     }
+    #welcome{
+      text-align: center;
+      height: 30px;
+    }
     margin: 0 auto;
     .ib{
       display: inline;
@@ -93,7 +96,8 @@ body{
       width: 70%;
       padding: 30px;
       margin: 0 auto;
-      li section:nth-child(2){
+      li section:nth-child(2),
+      li section:nth-child(1){
         text-align: center;
       }
     }  
@@ -127,6 +131,22 @@ body{
       display: hidden;
     }
     
+  }
+
+}
+
+@media(max-width: 800px){
+  body main#menu{
+    .container{
+      width: 100%;
+    }  
+  }
+  #welcome{
+    margin-bottom: 30px;
+  }
+
+  .ib{
+    margin-bottom: 20px;
   }
 
 }
