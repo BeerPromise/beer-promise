@@ -91,12 +91,7 @@ app.post('/customerlogin', function(req, res) {
   });
 });
 
-app.get('/signout', function(req, res) {
-  var sess = req.session;
-  delete sess.user;
-  res.redirect('/');
-});
-
+ 
 
 // -- JSON Requests
 app.get('/get-session', function(req, res){
