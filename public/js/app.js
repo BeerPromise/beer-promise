@@ -6,16 +6,16 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
   var getSession = function (callback) {
     $http.get('/get-session').success(function(response){
-      console.log('==APP_ID== '+response.appID);
+      console.log('==APP_KEY== '+response.appKey);
       self.id = response.user;
-      callback(response.appID);
+      callback(response.appKey);
     });
   };
 
-  getSession(function(appID) {
-    var pusherID = appID || '6722ac0ecaea2ee391e6';
-    console.log('creating pusher with id: '+pusherID);
-    var client = new Pusher(pusherID);
+  getSession(function(appKey) {
+    var pusherKey = appKey || '6722ac0ecaea2ee391e6';
+    console.log('creating pusher with id: '+pusherKey);
+    var client = new Pusher(pusherKey);
     pusher = $pusher(client);
     var channel = pusher.subscribe('order-channel');
   });
@@ -50,16 +50,16 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   var getSession = function (callback) {
     $http.get('/get-session').success(function(response){
-      console.log('==APP_ID== '+response.appID);
+      console.log('==APP_ID== '+response.appKey);
       self.id = response.user;
-      callback(response.appID);
+      callback(response.appKey);
     });
   };
 
-  getSession(function(appID) {
-    var pusherID = appID || '6722ac0ecaea2ee391e6';
-    console.log('creating pusher with id: '+pusherID);
-    var client = new Pusher(pusherID);
+  getSession(function(appKey) {
+    var pusherKey = appKey || '6722ac0ecaea2ee391e6';
+    console.log('creating pusher with id: '+pusherKey);
+    var client = new Pusher(pusherKey);
     pusher = $pusher(client);
     var channel = pusher.subscribe('order-channel');
     channel.bind('new-order', function(data) {

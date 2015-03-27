@@ -101,7 +101,7 @@ app.get('/signout', function(req, res) {
 // -- JSON Requests
 app.get('/get-session', function(req, res){
   var sess = req.session;
-  sess.appID = process.env.PUSHER_APP_ID;
+  sess.appKey = process.env.PUSHER_KEY;
   res.json(sess);
 });
 
