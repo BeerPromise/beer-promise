@@ -5,6 +5,9 @@ try {
 } catch(e) {
   console.log('Local secrets not found, using Heroku');
   console.log('---- '+process.env.PUSHER_APP_ID);
+  console.log('==== '+process.env.PUSER_ID);
+  console.log('==== '+process.env.PUSHER_KEY);
+  console.log('============================');
   secrets = {
     pusherAppId: process.env.PUSHER_APP_ID,
     pusherKey: process.env.PUSHER_KEY,
