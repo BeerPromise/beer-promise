@@ -61,7 +61,9 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
     console.log('creating pusher with id: '+pusherKey);
     var client = new Pusher(pusherKey);
     pusher = $pusher(client);
+    console.log(JSON.stringify(pusher));
     var channel = pusher.subscribe('order-channel');
+    console.log(JSON.stringify(channel));
     channel.bind('new-order', function(data) {
       console.log('Ow! You poked me!');
       console.log(JSON.stringify(data));
