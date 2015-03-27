@@ -8,6 +8,7 @@ try {
   console.log('==== '+process.env.PUSER_ID);
   console.log('==== '+process.env.PUSHER_KEY);
   console.log('============================');
+  console.log('++++ '+process.env['PUSHER_KEY']);
   secrets = {
     pusherAppId: process.env.PUSHER_APP_ID,
     pusherKey: process.env.PUSHER_KEY,

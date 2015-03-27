@@ -36,6 +36,8 @@ server.listen(port, function(){
 
 app.get('/', function(req, res) {
   // This does NOT get called if there is an index.html...
+  console.log('---- '+process.env.PUSHER_APP_ID);
+  console.log('==== '+process.env.PUSER_ID);
   var sess = req.session;
   if (sess.user) {
     res.sendFile(root + 'menuApp.html');
