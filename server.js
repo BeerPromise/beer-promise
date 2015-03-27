@@ -104,19 +104,24 @@ app.get('/get-session', function(req, res){
   res.json(sess.user);
 });
 
-console.log('***************************************');
-console.log('--- '+JSON.stringify(pusher));
-
 var outstandingOrders = [];
 app.get('/placeorder', function(req, res) {
+  var sess = req.session;
   // --- This needs to equal some JSON object that is an order,
   // --- sent from the menu page.
-  // var order = {beers: 6};
-  var order = "BEER";
+  var order = {beers: 6, ID: sess.user};
   outstandingOrders.push(order);
   console.log('--- Order received');
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
   console.log('--- '+JSON.stringify(outstandingOrders));
+  res.end();
+});
+
+app.get('/completeorder/:orderID', function(req, res) {
+
+//  outstandingOrders.delete(order);
+  pusher.trigger('order-channel','order-complete', {orderID: ':orderID'});
+
   res.end();
 });
 

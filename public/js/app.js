@@ -5,13 +5,19 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
   // dev -- 6722ac0ecaea2ee391e6
   // her -- 620b27081e518968e2d2
 
-  var pusherID = '620b27081e518968e2d2';
+  var pusherID = '6722ac0ecaea2ee391e6';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
   self = this;
 
   var channel = pusher.subscribe('order-channel');
+
+  channel.bind('order-complete', function(data) {
+
+    console.log('Order completed!');
+
+  });
 
 
   this.id = "";
@@ -44,13 +50,24 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
   // dev -- 6722ac0ecaea2ee391e6
   // her -- 620b27081e518968e2d2
 
-  var pusherID = '620b27081e518968e2d2';
+  var pusherID = '6722ac0ecaea2ee391e6';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
   self = this;
 
   this.orders = ["No Orders"];
+
+  this.completeOrder = function(order) {
+    // {beers:6, ID: "email"}
+    // self.orders.delete(order);
+    console.log('trying to complete order');
+    $http.get('/completeorder/'+order.ID).success(function() {
+      console.log('complete request sent');
+    });
+
+
+  };
 
   var channel = pusher.subscribe('order-channel');
 
