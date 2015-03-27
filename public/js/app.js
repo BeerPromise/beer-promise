@@ -41,7 +41,7 @@ app.controller('BeerPromiseController', ['$http','$pusher', '$window', function(
 
   self.placeOrder = function() {
     console.log('Trying to place order');
-    $http.get('/placeorder').success(function() {
+    $http.get('/placeorder/'+self.beerCount).success(function() {
       console.log('Order placed.');
     });
   };
@@ -67,13 +67,6 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   self.completeOrder = function(order) {
     // self.orders.delete(order);
-
-//     for(var i=0;i<self.orders.length;i++) {
-//       if(self.orders[i].orderID == order.orderID) {
-//         data.splice(i, 1);
-//         break;
-//       }
-//     }
 
     console.log("Order is "+JSON.stringify(order));
     console.log('trying to complete order');

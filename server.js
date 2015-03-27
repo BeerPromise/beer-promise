@@ -29,10 +29,6 @@ server.listen(port, function(){
   console.log("Listening on server port " + port);
 });
 
-// -- Remember these methods --
-// var sess = req.session
-// res.redirect('');
-// res.send('');
 
 app.get('/', function(req, res) {
   // This does NOT get called if there is an index.html...
@@ -105,11 +101,9 @@ app.get('/get-session', function(req, res){
 });
 
 var outstandingOrders = [];
-app.get('/placeorder', function(req, res) {
+app.get('/placeorder/:numberOfBeers', function(req, res) {
   var sess = req.session;
-  // --- This needs to equal some JSON object that is an order,
-  // --- sent from the menu page.
-  var order = {beers: 6, orderID: sess.user};
+  var order = {beers: req.params.numberOfBeers, orderID: sess.user};
   outstandingOrders.push(order);
   console.log('--- Order received');
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
@@ -119,12 +113,7 @@ app.get('/placeorder', function(req, res) {
 
 app.get('/completeorder/:orderID', function(req, res) {
 
-//    for(var i=0;i<outstandingOrders.length;i++) {
-//      if(outstandingOrders[i].orderID == req.params.orderID) {
-//        data.splice(i,1);
-//        break;
-//      }
-//    }
+  // delete order from array
 
   console.log('!!!!!'+req.params.orderID);
   pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID});
