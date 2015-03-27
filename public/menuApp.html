@@ -23,7 +23,7 @@
 
       <h2 id="welcome">welcome, {{beerCtrl.id}}</h2>
 
-      <h1 ng-repeat="word in beerCtrl.testArray">{{word}}</h1>
+      <h1 ng-repeat="word in beerCtrl.testArray track by $index">{{word}}</h1>
       <br />
       <br />
 

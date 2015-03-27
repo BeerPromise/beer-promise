@@ -9,6 +9,13 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
   var channel = pusher.subscribe('test-channel');
 
+  channel.bind('test-event', function(data) {
+
+    console.log('Ow! You poked me!');
+    console.log(JSON.stringify(data));
+    self.testArray = data.array;
+
+  });
 
 
   this.testArray = ['uh'];
