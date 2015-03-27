@@ -119,15 +119,15 @@ app.get('/placeorder', function(req, res) {
 
 app.get('/completeorder/:orderID', function(req, res) {
 
-  for(var i=0;i<outstandingOrders.length;i++) {
-    if(outstandingOrders[i].orderID == req.params.orderID) {
-      data.splice(i,1);
-      break;
-    }
-  }
+//    for(var i=0;i<outstandingOrders.length;i++) {
+//      if(outstandingOrders[i].orderID == req.params.orderID) {
+//        data.splice(i,1);
+//        break;
+//      }
+//    }
 
   console.log('!!!!!'+req.params.orderID);
-  pusher.trigger('order-channel','order-complete', {orderID: req.params.orderID});
+  pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID});
 
   res.end();
 });

@@ -1,6 +1,6 @@
 var app = angular.module('beerPromise', ['pusher-angular']);
 
-app.controller('BeerPromiseController', ['$http','$pusher', function($http,$pusher){
+app.controller('BeerPromiseController', ['$http','$pusher', '$window', function($http,$pusher,$window){
 
   // dev -- 6722ac0ecaea2ee391e6
   // her -- 620b27081e518968e2d2
@@ -15,9 +15,12 @@ app.controller('BeerPromiseController', ['$http','$pusher', function($http,$push
 
   channel.bind('order-complete', function(data) {
 
-    $http.get('/getyourticket').success(function() {
-      console.log('EVErythING WORKING');
-    });
+
+    $window.location.href = '/ticket.html';
+
+//     $http.get('/getyourticket').success(function() {
+//       console.log('EVErythING WORKING');
+//     });
 
 
 
@@ -60,17 +63,17 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   self = this;
 
-  self.orders = ["No Orders"];
+  self.orders = [];
 
   self.completeOrder = function(order) {
     // self.orders.delete(order);
 
-    for(var i=0;i<self.orders.length;i++) {
-      if(self.orders[i].orderID == order.orderID) {
-        data.splice(i, 1);
-        break;
-      }
-    }
+//     for(var i=0;i<self.orders.length;i++) {
+//       if(self.orders[i].orderID == order.orderID) {
+//         data.splice(i, 1);
+//         break;
+//       }
+//     }
 
     console.log("Order is "+JSON.stringify(order));
     console.log('trying to complete order');
