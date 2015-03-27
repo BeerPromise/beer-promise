@@ -104,14 +104,17 @@ app.get('/get-session', function(req, res){
   res.json(sess.user);
 });
 
-  var testArray = [];
-
-  app.get('/push-test', function(req, res) {
-    testArray.push('FREE');
-    pusher.trigger('test-channel', 'test-event', {"array": testArray});
-    console.log("--- "+JSON.stringify(testArray));
-    res.end();
-  });
+var outstandingOrders = [];
+app.get('/placeorder', function(req, res) {
+  // --- This needs to equal some JSON object that is an order,
+  // --- sent from the menu page.
+  // var order = {beers: 6};
+  var order = "BEER";
+  outstandingOrders.push(order);
+  pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
+  console.log('--- '+JSON.stringify(outstandingOrders));
+  res.end();
+});
 
 
 
