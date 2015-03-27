@@ -101,7 +101,8 @@ app.get('/signout', function(req, res) {
 // -- JSON Requests
 app.get('/get-session', function(req, res){
   var sess = req.session;
-  res.json(sess.user);
+  sess.appID = env.process.PUSHER_APP_ID;
+  res.json(sess);
 });
 
 var outstandingOrders = [];
