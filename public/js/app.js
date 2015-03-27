@@ -5,7 +5,7 @@ app.controller('BeerPromiseController', ['$http','$pusher', '$window', function(
   // dev -- 6722ac0ecaea2ee391e6
   // her -- 620b27081e518968e2d2
 
-  var pusherID = '620b27081e518968e2d2';
+  var pusherID = '6722ac0ecaea2ee391e6';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
@@ -57,7 +57,7 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
   // dev -- 6722ac0ecaea2ee391e6
   // her -- 620b27081e518968e2d2
 
-  var pusherID = '620b27081e518968e2d2';
+  var pusherID = '6722ac0ecaea2ee391e6';
   var client = new Pusher(pusherID);
   var pusher = $pusher(client);
 
