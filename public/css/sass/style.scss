@@ -3,7 +3,11 @@ body{
   font-family: 'Poiret One', cursive;
   letter-spacing: 5px;
   background-color: #FFF;
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
   header{
     text-align: center;
     height: 120px;
@@ -53,6 +57,7 @@ body{
       }
   }
 
+<<<<<<< HEAD
   main#bar{
     section{
       padding: 20px;
@@ -63,6 +68,18 @@ body{
       margin: 30px auto;   
     }
   }
+=======
+main#bar{
+  section{
+    padding: 20px;
+    border: solid 1px;
+    border-radius: 10px;
+    border-color: #acacac;
+    width: 70%;
+    margin: 30px auto;
+     }
+   }
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
 
   main#menu{
     .container{
@@ -100,7 +117,11 @@ body{
       li section:nth-child(1){
         text-align: center;
       }
+<<<<<<< HEAD
     }  
+=======
+    }
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
     .button{
       border-radius: 10px;
       background-color: #33A4A8;
@@ -116,7 +137,11 @@ body{
       border-color: #FFC778;
       p{
         display: inline;
+<<<<<<< HEAD
       }  
+=======
+      }
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
     }
     div:nth-child(3) section{
       margin-top: 50px;
@@ -130,8 +155,11 @@ body{
     .hidden{
       display: hidden;
     }
+<<<<<<< HEAD
     
   }
+=======
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
 
 }
 
@@ -139,15 +167,29 @@ body{
   body main#menu{
     .container{
       width: 100%;
+<<<<<<< HEAD
     }  
+=======
+    }
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
   }
   #welcome{
     margin-bottom: 30px;
   }
 
+<<<<<<< HEAD
   .ib{
     margin-bottom: 20px;
   }
+=======
+
+
+  .ib{
+    margin-bottom: 20px;
+  }
+
+
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
 
 }
 

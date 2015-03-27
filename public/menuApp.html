@@ -14,6 +14,7 @@
   </head>
   <body ng-controller="BeerPromiseController as beerCtrl">
     <header>
+      <img src="css/img/logo.png" />
 
        
       <img src="css/img/logo.png" />
@@ -21,12 +22,19 @@
     </header>
 
     <main id="menu">
+<<<<<<< HEAD
       
       <div class="container">  
+=======
+
+
+    <div class="container">
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
         <section class="row clearfix">
           <div class="col-xs-12 clearfix">
             <div id="welcome" class="col-xs-12 col-sm-6 clearfix">
               <h2>Welcome, {{beerCtrl.id}}</h2>
+<<<<<<< HEAD
             </div>  
             <div class="col-xs-12 col-sm-6">
               <a class="button" href="/signout">Log Out</a>
@@ -37,6 +45,18 @@
       <div class="full-width">  
         <ul class="row clearfix">
           <li class="col-xs-12 clearfix"> 
+=======
+            </div>
+            <div class="col-xs-12 col-sm-6">
+              <a class="button" href="/signout">Log Out</a>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="full-width">
+        <ul class="row clearfix">
+          <li class="col-xs-12 clearfix">
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
             <section class="col-xs-12 col-sm-6 ib">
               <h2>BEER</h2>
             </section>
@@ -48,11 +68,45 @@
           </li>
         </ul>
       </div>
+<<<<<<< HEAD
       <div class="container">  
         <section class="row clearfix">
           <a class="button" href="#" ng-click="beerCtrl.placeOrder()">Place Order</a>
         </section>
       </div>  
+=======
+      <div class="container">
+        <section class="row clearfix">
+          <a class="button" href="#" ng-click="beerCtrl.placeOrder()">Place Order</a>
+        </section>
+      </div>
+
+
+
+
+<!--       <h2 id="welcome">welcome, {{beerCtrl.id}}</h2>
+
+      <ul>
+        <li>
+          <section>
+            <h2>BEER</h2>
+          </section>
+          <section>
+            <a href="#" id="increment" ng-click="beerCtrl.addBeer()">+</a>
+            <ins>{{beerCtrl.beerCount}}</ins>
+            <a href="#" id="decrement" ng-click="beerCtrl.removeBeer()">-</a>
+          </section>
+        </li>
+      </ul>
+
+      <section>
+        <a href="#" ng-click="beerCtrl.placeOrder()">Place Order</a>
+      </section>
+
+      <footer>
+        <a href="/signout">Log Out</a>
+      </footer> -->
+>>>>>>> 790a4453eacebd0f6a230e4242c1308f6d63aa9a
 
     </main>
 

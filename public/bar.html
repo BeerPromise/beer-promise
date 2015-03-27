@@ -31,14 +31,14 @@
 
       <section>
 
-        <h2>Submitted Orders</h2> 
-        <ul>
-          <li>
-            
-          </li>
-        </ul> 
-
+        <h2>Submitted Orders</h2>
+        <article>
+        <h3 ng-repeat="order in barCtrl.orders track by $index">{{order.beers}} Beers
+                    <a href="#" ng-click="barCtrl.completeOrder(order)">GOT IT!</a>
+        </h3>
+        </article>
       </section>
+
 
       <section>
         <h2>Accepted Orders</h2>
