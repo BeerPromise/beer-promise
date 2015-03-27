@@ -73,7 +73,7 @@ app.controller('BeerBarController', ['$http', '$pusher', function($http, $pusher
 
   self = this;
 
-  this.orders = ["No Orders"];
+  self.orders = ["No Orders"];
 
 
 
