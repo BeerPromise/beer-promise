@@ -1,18 +1,17 @@
 body {
   font-size: 1.5em;
   font-family: 'Poiret One', cursive;
-  text-transform: uppercase;
   letter-spacing: 5px;
   background-color: #FFF;
-  vertical-align: center;
 }
 body header {
   text-align: center;
   height: 120px;
   background-color: #FFC778;
 }
-body header svg {
+body header img {
   padding-top: 25px;
+  max-width: 70%;
 }
 body main {
   padding-top: 60px;
@@ -45,7 +44,7 @@ body main .sign-in input#sign-in-submit,
 body main .sign-in input#sign-up-submit {
   padding: 10px 20px !important;
   font-size: 20px;
-  background-color: red;
+  background-color: #E49191;
   border: none;
   font-family: inherit;
   cursor: pointer;
@@ -60,8 +59,83 @@ body main#bar section {
   margin: 30px auto;
 }
 body main#menu {
-  width: 70%;
   margin: 0 auto;
+}
+body main#menu .container {
+  width: 70%;
+}
+body main#menu .container:nth-child(1) {
+  margin-bottom: 40px;
+}
+body main#menu #welcome {
+  text-align: center;
+  height: 30px;
+}
+body main#menu .ib {
+  display: inline;
+  padding: 0 !important;
+}
+body main#menu section:nth-child(3) {
+  text-align: center;
+  margin-top: 40px;
+}
+body main#menu section:nth-child(1) h2,
+body main#menu section:nth-child(1) div {
+  display: inline;
+  padding: 0;
+}
+body main#menu section:nth-child(1) div:nth-child(2) {
+  text-align: center;
+}
+body main#menu ul {
+  width: 70%;
+  padding: 30px;
+  margin: 0 auto;
+}
+body main#menu ul li section:nth-child(2),
+body main#menu ul li section:nth-child(1) {
+  text-align: center;
+}
+body main#menu .button {
+  border-radius: 10px;
+  background-color: #33A4A8;
+  padding: 10px 20px;
+}
+body main#menu a[href="/signout"] {
+  background-color: #E49191;
+}
+body main#menu .full-width {
+  width: 100%;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
+  border-color: #FFC778;
+}
+body main#menu .full-width p {
+  display: inline;
+}
+body main#menu div:nth-child(3) section {
+  margin-top: 50px;
+  text-align: center;
+}
+body main#menu #increment img {
+  max-width: 100%;
+}
+body main#menu .hidden {
+  display: hidden;
+}
+
+@media (max-width: 800px) {
+  body main#menu .container {
+    width: 100%;
+  }
+
+  #welcome {
+    margin-bottom: 30px;
+  }
+
+  .ib {
+    margin-bottom: 20px;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
