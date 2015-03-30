@@ -106,9 +106,8 @@ app.get('/placeorder/:numberOfBeers', function(req, res) {
   var order = {beers: req.params.numberOfBeers, orderID: sess.user};
   outstandingOrders.push(order);
   console.log('--- Order received');
-  console.log(pusher);
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
-  console.log('--- '+JSON.stringify(outstandingOrders));
+  console.log('--- '+outstandingOrders);
   res.end();
 });
 
@@ -117,7 +116,11 @@ app.get('/completeorder/:orderID', function(req, res) {
   // delete order from array
 
   console.log('!!!!!'+req.params.orderID);
-  pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID});
+  pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID}, function(err, req, res) {
+    console.log('Error: '+err);
+    console.log(req);
+    console.log(res);
+  });
 
   res.end();
 });
