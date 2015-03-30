@@ -106,6 +106,7 @@ app.get('/placeorder/:numberOfBeers', function(req, res) {
   var order = {beers: req.params.numberOfBeers, orderID: sess.user};
   outstandingOrders.push(order);
   console.log('--- Order received');
+  console.log(pusher);
   pusher.trigger('order-channel', 'new-order', {"array": outstandingOrders });
   console.log('--- '+JSON.stringify(outstandingOrders));
   res.end();
