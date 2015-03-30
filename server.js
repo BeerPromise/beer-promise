@@ -115,12 +115,7 @@ app.get('/completeorder/:orderID', function(req, res) {
 
   // delete order from array
 
-  console.log('!!!!!'+req.params.orderID);
-  pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID}, function(err, req, res) {
-    console.log('Error: '+err);
-    console.log(req);
-    console.log(res);
-  });
+  pusher.trigger('order-channel','order-complete', {"orderID": req.params.orderID});
 
   res.end();
 });
