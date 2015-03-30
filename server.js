@@ -13,6 +13,7 @@ app.use(session({
 
 // --- Pusher ---
 var pusher = require('./controllers/pusher');
+console.log(pusher);
 
 // --- Database ---
 var mongojs = require('mongojs');
