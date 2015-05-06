@@ -11,7 +11,8 @@ Installation Requirements
 
 - run ```NPM install```
 
-####Tasks Complete
+Tasks Complete
+-------
 
 - [x] Environment set up
 - [x] Basic HTML layout constructed
@@ -22,14 +23,16 @@ Installation Requirements
 - [x] Allow customer to add order
 - [x] CSS styling
 
-####To-Do
+To-Do
+-------
 
 - [ ] Log in for bar
 - [ ] Bar can receive order request
 - [ ] Allow customer to receive confirmation code when order is ready
 - [ ] Bar can alert customer when order is ready
 
-####Technologies Used
+Technologies Used
+-------
 
 - Javascript
 - AngularJS
