@@ -1,4 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/beerpromise/beer-promise.png?label=ready&title=Ready)](https://waffle.io/beerpromise/beer-promise)
+![Code Climate](https://codeclimate.com/github/BeerPromise/beer-promise/badges/gpa.svg)](https://codeclimate.com/github/BeerPromise/beer-promise)
 
 Golden Ticket
 =========
