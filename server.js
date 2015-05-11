@@ -13,6 +13,9 @@ var db = mongojs((process.env.MONGOLAB_URI || 'beer-'+process.env.BEER_NODE_ENV)
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({'extended':'true'}));
 
+// -- Helper Files --
+var bcrypt = require('./controllers/bcrypt');
+
 // -- Server Start --
 server.listen(port, function(){
   console.log("Listening on server port " + port);
