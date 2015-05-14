@@ -4,12 +4,7 @@
 Golden Ticket
 =========
 
-Makers Academy Week 8 Makerthon project. The app is designed to minimise the amount of time spent queueing for beer and to simplify placing an order, with real-time order confirmation between a bar and a user. For our current MVP, our ideal model is festivals where the menu is limited and the amount of individual customers is very high.
-
-Installation Requirements
--------
-
-- run ```NPM install```
+Please note this project is currently being reworked on the `restart` branch. Makers Academy Week 8 Makerthon project. The app is designed to minimise the amount of time spent queueing for beer and to simplify placing an order, with real-time order confirmation between a bar and a user. For our current MVP, our ideal model is festivals where the menu is limited and the amount of individual customers is very high. 
 
 Tasks Complete
 -------
