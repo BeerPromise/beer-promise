@@ -12,6 +12,7 @@ var server = app.listen(port, function () {
   var port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
 });
+var mongojs = require('mongojs');
 var db = mongojs('beer-development', ['beer-development']);
 var routes = require('./routes/index');
 // var users = require('./routes/users');
