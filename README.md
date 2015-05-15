@@ -18,4 +18,4 @@ Installation Requirements
 Testing
 ------
 
-Golden Ticket is unit tested with Protractor.
+Golden Ticket is end-to-end tested with Protractor and unit tested with Karma.
