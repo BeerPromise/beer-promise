@@ -1,4 +1,4 @@
 exports.config = {
-  seleniumAddress: 'http://localhost:4444/wd/hub',
-  specs: ['path/to/test/file/testFeature.js']
+  baseUrl: 'http://localhost:3000',
+  specs: ['spec/homepageSpec.js']
 }

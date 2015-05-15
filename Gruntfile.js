@@ -2,7 +2,7 @@ module.exports = function(grunt){
 
   grunt.initConfig({
     jshint: {
-      all: ['Gruntfile.js', 'js/*.js']
+      all: ['Gruntfile.js', 'js/*.js', 'spec/*Spec.js']
     },
 
     watch: {
@@ -22,8 +22,10 @@ module.exports = function(grunt){
 
     karma: {
       unit: {
+        options: {
+          files: { src: ['spec/*Spec.js'] },
+        },
         configFile: 'karma.conf.js',
-        files: ['spec/*Spec.js'],
         background: true,
         singleRun: false
       }
@@ -36,6 +38,6 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-jasmine');
   grunt.loadNpmTasks('grunt-karma');
 
-  grunt.registerTask('default', ['jshint']);
+  grunt.registerTask('default', ['jshint', 'jasmine']);
 
 };
